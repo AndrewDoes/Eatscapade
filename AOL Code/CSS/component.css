@@ -165,4 +165,5 @@ input[type=text]:focus {
 
 .calendar-container{
     width: 35%;
+    height: 100%;
 }
