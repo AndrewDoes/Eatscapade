@@ -1,0 +1,168 @@
+* {
+    font-family: "Azeret Mono", monospace;
+    font-size: large;
+}
+
+body {
+    background-color: #EDD8D8;
+    padding: 2%;
+    height: calc(100vh-padding);
+}
+
+.side-left{
+    min-width: 20%;
+    max-width: fit-content;
+    position: relative;
+}
+
+.sidebar{
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.button{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+}
+
+li.active{
+    border-right: 3px solid #FF9B22;
+}
+
+.searchbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.wrap div{
+    padding: 10px 0;
+}
+
+.sidebar li{
+    list-style: none;
+    width: 100%;
+}
+
+.sidebar li a{
+    display: flex;
+    color: #D72638;
+    text-decoration: none;
+    align-items: center;
+}
+
+.sidebar li.active a{
+    color: #B11131;
+    font-weight: 700;
+}
+
+.sidebar li a i{
+    width: 16px;
+    height: 16px;
+    padding-right: 10px;
+}
+
+.sidebar img {
+    padding-right: 10px;
+    image-rendering: optimizeQuality;
+}
+
+.add-post-Button{
+    padding: 10px 20px;
+    border-radius: 80px;
+    background-color: #D72638;
+    color: aliceblue;
+    border-color: transparent;
+}
+
+.content{
+    min-height: 100%;
+    display: flex;
+    position: relative;
+}
+
+#logout{
+    bottom: 0;
+    left: 0;
+}
+
+.side-right{
+    width: 80%;
+    height: inherit;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+}
+
+.top{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    color: #D72638;
+}
+
+.searchbar{
+    background-color: #F9E6E6;
+    border-radius: 30px;
+    width: 80%;
+    padding: 15px 20px;
+    color: #E37070;
+}
+
+input[type=text] {
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    padding-left: 20px;
+}
+
+input::placeholder{
+    color: #E37070;
+}
+
+input[type=text]:focus {
+    outline: none;
+}
+
+.fa-bell::before, .fa-user::before{
+    font-size: 32px;
+}
+
+.bottom{
+    height: 80vh;
+    position: relative;
+    display: flex;
+}
+
+.post-container{
+    height: 100%;
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+}
+
+.video-story{
+    height: 20%;
+    position: relative;
+}
+
+.video-story video{
+    height: 100%;
+}
+
+.post{
+    flex: 1;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.calendar-container{
+    width: 35%;
+}
