@@ -10,7 +10,7 @@ body {
 }
 
 .side-left{
-    min-width: 20%;
+    min-width: 18%;
     max-width: fit-content;
     position: relative;
 }
@@ -36,7 +36,13 @@ li.active{
 .searchbar{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
+}
+
+.top-wrapper{
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
 }
 
 .wrap div{
@@ -83,6 +89,7 @@ li.active{
     min-height: 100%;
     display: flex;
     position: relative;
+    gap: 1%;
 }
 
 #logout{
@@ -91,7 +98,7 @@ li.active{
 }
 
 .side-right{
-    width: 80%;
+    flex: 1;
     height: inherit;
     position: relative;
     display: flex;
@@ -102,17 +109,19 @@ li.active{
 .top{
     display: flex;
     width: 100%;
+    gap: 8%;
     align-items: center;
     justify-content: space-around;
     color: #D72638;
 }
 
-.searchbar{
+.searchbar {
     background-color: #F9E6E6;
     border-radius: 30px;
     width: 80%;
     padding: 15px 20px;
     color: #E37070;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 input[type=text] {
@@ -151,6 +160,7 @@ input[type=text]:focus {
 .video-story{
     height: 20%;
     position: relative;
+    border: 1px solid #B11131;
 }
 
 .video-story video{
@@ -158,11 +168,23 @@ input[type=text]:focus {
 }
 
 .post{
+    display: flex;
     flex: 1;
     overflow-x: hidden;
     overflow-y: auto;
+    position: relative;
+    border: 1px solid #B11131;
+}
+
+.column{
+    width: 50%;
+    height: 100%;
+    flex: 1;
+    position: relative;
+    border: 1px solid #FF9B22;
 }
 
 .calendar-container{
     width: 35%;
+    border: 1px solid #B11131;
 }
