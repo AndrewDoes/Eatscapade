@@ -17,6 +17,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding-right: 2%;
 }
 
 .side-left .logo{
@@ -118,13 +119,13 @@ li.active{
 
 .side-right{
     flex: 1;
-    max-width: 78%;
+    max-width: 80%;
     height: inherit;
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 5vh;
-    padding-left : 2%;
+    gap: 3vh;
+    /* padding-left : 2%; */
 }
 
 .top{
