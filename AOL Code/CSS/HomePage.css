@@ -8,7 +8,7 @@
 }
 
 .video-story{
-    border: 1px solid #B11131;
+    /* border: 1px solid #B11131; */
     max-width: 100%;
     height: 27.5%;
     overflow-x: auto;
@@ -70,7 +70,7 @@
     background-size: cover;
     background-position: center;
     border-radius: 40px 40px 40px 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
     position: relative;
 }
 
@@ -82,7 +82,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.4);
     opacity: 0; /* Start invisible */
     transition: opacity 0.3s ease;
     pointer-events: none; /* Prevent blocking clicks */
@@ -90,6 +90,12 @@
 
 .video-card:hover::before{
     opacity: 1;
+}
+
+.video-card:hover{
+    top: -0.5vh;
+    /* left: -0.2vh; */
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.7);
 }
 
 .user-profile{
@@ -133,4 +139,58 @@
 
 .user-pic .fa-solid.fa-user::before{
     font-size: 24px;
+}
+
+.pop-up{
+    width: 100%;
+    height: 0%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: none;
+    transition: height 0.5s ease-in-out;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.0);
+    z-index: 1;
+}
+
+.pop-up.active{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    opacity: 1;
+    transition: height 0.5s ease;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.pop-up.active .video-container.landscape{
+    width: 40vw;
+    height: 30vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.pop-up.active .video-container.landscape{
+    width: 40vw;
+    height: 30vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.pop-up .video-container video{
+    width: 100%;
+    height: 100%;
 }

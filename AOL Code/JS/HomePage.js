@@ -53,3 +53,11 @@ document.addEventListener('DOMContentLoaded', () => {
         cancelAnimationFrame(rafID);
     });
 });
+
+window.openVideo = function () {
+    document.querySelector('.pop-up').classList.add('active');
+};
+
+window.closeVideo = function () {
+    document.querySelector('.pop-up').classList.remove('active');
+};
