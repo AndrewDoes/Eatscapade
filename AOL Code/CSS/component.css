@@ -166,14 +166,25 @@ input[type=text]:focus {
     font-size: 32px;
 }
 
-.bottom{
+.bottom-2col{
     height: 80vh;
     position: relative;
     display: flex;
+    overflow-y: auto;
 }
 
 .calendar-container{
     width: 35%;
     border: 1px solid #B11131;
+    position: sticky;
+    top: 0;
+    right: 0;
 }
 
+.column#column-1{
+    padding-right: 1vw;
+}
+
+.column#column-2{
+    padding-left: 1vw;
+}

@@ -1,5 +1,5 @@
 .post-container{
-    height: 100%;
+    min-height: 100%;
     max-width: 65%;
     min-width: 65%;
     margin-right: 2.5vw;
@@ -8,9 +8,9 @@
 }
 
 .video-story{
-    /* border: 1px solid #B11131; */
+    border: 1px solid #B11131;
     max-width: 100%;
-    height: 27.5%;
+    min-height: 27.5%;
     overflow-x: auto;
     overflow-y: hidden;
     display: flex;
@@ -36,15 +36,16 @@
     height: 100%;
 }
 
-.post{
-    display: flex;
-    flex: 1;
-    overflow-x: hidden;
-    overflow-y: auto;
-    position: relative;
-    border: 1px solid #B11131;
-    padding-top: 3vh;
+.post {
+  display: flex;
+  flex-direction: column; /* stack items from top to bottom */
+  height: auto;
+  position: relative;
+  border: 1px solid #B11131;
+  padding-top: 3vh;
 }
+
+
 
 .post::-webkit-scrollbar {
     display: none;
@@ -52,7 +53,7 @@
 
 .column{
     width: 50%;
-    height: 100%;
+    height: auto;
     flex: 1;
     position: relative;
     border: 1px solid #FF9B22;
@@ -191,6 +192,88 @@
 }
 
 .pop-up .video-container video{
+    width: 100%;
+    height: 100%;
+}
+
+.column .post-card {
+    max-width: 100%;
+    padding: 3vh;
+    background-color: rgba(249, 230, 230, 1);
+    border-radius: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    margin-bottom: 1vh;
+}
+
+.column .post-card .paragraph{
+    margin: 0;
+    font-size: 12px;
+    font-weight: normal;
+    color: #000;
+    margin: 2vh 0 2vh 0;
+}
+
+.column .post-card .top-section{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.column .post-card .top-section .left{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 35%;
+}
+
+.column .post-card .top-section .left .prof-pic{
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #B01130;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.column .post-card .top-section .left .user-info{
+    display: flex;
+    flex-direction: column;
+}
+
+.column .post-card .top-section .left .user-info p{
+    text-align: left;
+    font-size: 12px;
+    color: #B01130;
+    margin: 0;
+}
+
+.column .post-card .top-section .left .user-info .user-name{
+    font-weight: bold;
+}
+
+.column .post-card .top-section .right .fa-solid.fa-share::before{
+    font-size: 24px;
+    color:#B01130;
+}
+
+.column .post-card.textImage .images.image4{
+    display: grid;
+    grid-template-columns: auto auto;
+    border-radius: 30px;
+    overflow: hidden;
+    background-color: #B01130;
+    border: 1px solid #B01130;
+}
+
+.column .post-card.textImage .images.image4 .image{
+    max-height: 100%;
+    width: 100%;
+    border: 1px solid #B01130;
+}
+
+.column .post-card.textImage .images.image4 .image img{
     width: 100%;
     height: 100%;
 }
