@@ -7,6 +7,7 @@ body {
     background-color: #EDD8D8;
     padding: 2%;
     height: calc(100vh-padding);
+    overflow: hidden;
 }
 
 .side-left{

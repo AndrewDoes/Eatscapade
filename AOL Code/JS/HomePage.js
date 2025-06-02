@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let rafID = null;
 
     const handleMove = (x) => {
-        const walk = (x - startX) * 0.4; // adjust drag speed here
+        const walk = (x - startX) * 1.5; // adjust drag speed here
         slider.scrollLeft = scrollLeft - walk;
     };
 
