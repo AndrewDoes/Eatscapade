@@ -8,7 +8,7 @@
 }
 
 .video-story {
-    border: 1px solid #B11131;
+    /* border: 1px solid #B11131; */
     max-width: 100%;
     min-height: 27.5%;
     overflow-x: auto;
@@ -47,7 +47,7 @@
     /* stack items from top to bottom */
     height: auto;
     position: relative;
-    border: 1px solid #B11131;
+    /* border: 1px solid #B11131; */
     padding-top: 3vh;
 }
 
@@ -63,7 +63,7 @@
     justify-content: space-evenly;
     height: auto;
     position: relative;
-    border: 1px solid #FF9B22;
+    /* border: 1px solid #FF9B22; */
 }
 
 .video-card {
@@ -193,6 +193,7 @@
     width: 40vw;
     height: 30vw;
     padding: 2vw;
+    gap: 1vh;
 }
 
 .pop-up.active .popUp-container{
