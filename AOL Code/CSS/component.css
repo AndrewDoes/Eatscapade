@@ -3,7 +3,8 @@
     font-size: large;
 }
 
-p, h2{
+p,
+h2 {
     margin: 0;
 }
 
@@ -14,7 +15,11 @@ body {
     overflow: hidden;
 }
 
-.side-left{
+.transparent::before{
+    color: transparent;
+}
+
+.side-left {
     min-width: 18%;
     max-width: fit-content;
     position: relative;
@@ -24,73 +29,126 @@ body {
     padding-right: 2%;
 }
 
-.side-left .logo{
+.side-left .logo {
     width: 11vw;
     height: 7vh;
 }
 
-.side-left .logo img{
+.side-left .logo img {
     width: 100%;
     height: 100%;
 }
 
-.sidebar{
+.sidebar {
     height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-.button{
+.button {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: left;
 }
 
-li.active{
+li.active {
     border-right: 3px solid #FF9B22;
 }
 
-.searchbar{
+.searchbar {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.top-wrapper{
+.top-wrapper {
     flex: 1;
     display: flex;
     justify-content: space-between;
+    gap: 2vh;
+    width: 15%;
+    position: relative;
 }
 
-.wrap{
+.top-wrapper .profile{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+}
+
+.notif-box{
+    position: relative;
+    display: flex;
+    padding: 1vh 1vw;
+    justify-content: space-evenly;
+    transition: all 0.5s ease-in-out;
+    align-items: center;
+}
+
+.notif-box.active{
+    border-radius: 20px;
+    width: 70%;
+    gap: 2vh;
+    background-color: #F9E6E6;
+    border-color: #B11131;
+}
+
+.notif-count{
+    scale: calc(0);
+}
+
+.notif-count.active{
+    scale: calc(1);
+}
+
+.notif-count.pop{
+    animation: popNotif 0.5s ease-in-out;
+}
+
+@keyframes popNotif {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.wrap {
     display: flex;
     flex-direction: column;
 }
 
-.wrap div{
+.wrap div {
     padding: 10px 0;
 }
 
-.sidebar li{
+.sidebar li {
     list-style: none;
     width: 100%;
 }
 
-.sidebar li a{
+.sidebar li a {
     display: flex;
     color: #D72638;
     text-decoration: none;
     align-items: center;
 }
 
-.sidebar li.active a{
+.sidebar li.active a {
     color: #B11131;
-    font-weight: 700;
+    font-weight: 500;
 }
 
-.sidebar li a i{
+.sidebar li a i {
     width: 16px;
     height: 16px;
     padding-right: 10px;
@@ -101,7 +159,7 @@ li.active{
     image-rendering: optimizeQuality;
 }
 
-.add-post-Button{
+.add-post-Button {
     padding: 10px 20px;
     border-radius: 80px;
     background-color: #D72638;
@@ -109,19 +167,19 @@ li.active{
     border-color: transparent;
 }
 
-.content{
+.content {
     min-height: 100%;
     display: flex;
     position: relative;
     gap: 1%;
 }
 
-#logout{
+#logout {
     bottom: 0;
     left: 0;
 }
 
-.side-right{
+.side-right {
     flex: 1;
     max-width: 80%;
     height: inherit;
@@ -132,7 +190,7 @@ li.active{
     /* padding-left : 2%; */
 }
 
-.top{
+.top {
     display: flex;
     width: 100%;
     gap: 8%;
@@ -158,7 +216,7 @@ input[type=text] {
     padding-left: 20px;
 }
 
-input::placeholder{
+input::placeholder {
     color: #E37070;
 }
 
@@ -166,11 +224,12 @@ input[type=text]:focus {
     outline: none;
 }
 
-.fa-bell::before, .fa-user::before{
+.fa-bell::before,
+.fa-user::before {
     font-size: 32px;
 }
 
-.bottom-2col{
+.bottom-2col {
     height: 80vh;
     position: relative;
     display: flex;
@@ -181,7 +240,7 @@ input[type=text]:focus {
     scroll-behavior: smooth;
 }
 
-.calendar-container{
+.calendar-container {
     width: 35%;
     border: 1px solid #B11131;
     position: sticky;
@@ -189,10 +248,155 @@ input[type=text]:focus {
     right: 0;
 }
 
-.column#column-1{
-    padding-right: 0.5vw;
+
+.create-post-container.landscape {
+    width: 60vw;
+    height: 40vw;
+    display: flex;
+    flex-direction: column;
+    background-color: #F9E6E6;
+    border-radius: 10px;
 }
 
-.column#column-2{
-    padding-left: 0.5vw;
+.create-post-container.landscape .form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
+
+.form .form-header {
+    display: flex;
+    padding: 3vh;
+    justify-content: start;
+    gap: 2vw;
+}
+
+.form .form-header .fa-solid.fa-xmark{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form .form-header p{
+    font-size: 24px;
+}
+
+.form .form-input {
+    flex: 1;
+    position: relative;
+    height: 100%;
+}
+
+
+
+.form-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    padding: 3vh;
+    height: 60%;
+    padding: 2vw 5vw;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-width: none;
+    /* hide scrollbar (Firefox) */
+    user-select: none;
+    scroll-behavior: smooth;
+}
+
+.form .form-top::-webkit-scrollbar {
+    display: none;
+}
+
+
+.form-input .inputText {
+    padding: 0;
+    position: relative;
+    font-size: 16px;
+    word-wrap: break-word;
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto; /* Penting: Sembunyikan scrollbar vertikal default */
+    resize: none; /* Matikan kemampuan resize manual oleh pengguna */
+    transition: border-color 0.2s ease-in-out; /* Transisi halus untuk border */
+    box-sizing: border-box; /* Pastikan padding dan border termasuk dalam total width/height */
+}
+
+.form-input .inputText:focus{
+    border: transparent;
+    outline: none;
+}
+
+.form-bottom {
+    display: flex;
+    flex-direction: column;
+    padding: 0vw 5vw;
+}
+
+.form-bottom .row {
+    display: flex;
+}
+
+#top-row {
+    padding-bottom: 1vh;
+    border-bottom: 2px solid #B11131;
+}
+
+.form-bottom .row .add-location,
+.form-bottom .row .tag-people {
+    display: flex;
+    height: fit-content;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #B11131;
+    border-radius: 30px;
+    padding: 10px 20px;
+    gap: 10px;
+}
+
+.form-bottom .row .add-location i::before,
+.form-bottom .row .tag-people i::before {
+    font-size: 16px;
+    color: #B11131;
+    width: fit-content;
+    height: fit-content;
+}
+
+.form-bottom .row .add-location p,
+.form-bottom .row .tag-people p {
+    font-size: 12px;
+    color: #B11131;
+    width: fit-content;
+    height: fit-content;
+}
+
+
+#bottom-row {
+    width: inherit;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1vh;
+}
+
+#bottom-row .input-icons {
+    padding: 10px 20px;
+    border-radius: 80px;
+    background-color: #D72638;
+    color: aliceblue;
+    border-color: transparent;
+}
+
+.row .input-btn{
+    padding: 10px 20px;
+    border-radius: 80px;
+    background-color: #D72638;
+    color: aliceblue;
+    border-color: transparent;
+}
+
+

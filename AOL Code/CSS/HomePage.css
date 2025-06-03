@@ -26,6 +26,7 @@
     scroll-behavior: smooth;
     white-space: nowrap;
     /* Important fallback */
+    border-radius: 40px 40px 40px 10px;
 }
 
 .video-story.dragging {
@@ -57,7 +58,9 @@
 }
 
 .column {
-    width: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
     height: auto;
     position: relative;
     border: 1px solid #FF9B22;
@@ -76,7 +79,7 @@
     background-size: cover;
     background-position: center;
     border-radius: 40px 40px 40px 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.7);
     position: relative;
 }
 
@@ -180,65 +183,79 @@
     z-index: 1;
 }
 
-.pop-up.active .video-container.landscape {
+.pop-up.active .fa-solid.fa-xmark {
+    font-size: 24px;
+    color: #B11131;
+    cursor: pointer;
+}
+
+.pop-up.active .popUp-container.landscape {
     width: 40vw;
     height: 30vw;
+    padding: 2vw;
+}
+
+.pop-up.active .popUp-container{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: start;
+    background-color: #F1DADA;
+    padding: 2vh;
+    border-radius: 10px;
 }
 
-.pop-up.active .video-container.landscape {
-    width: 40vw;
-    height: 30vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.pop-up.active .popUp-container.portrait {
+    width: 30vw;
+    height: 40vw;
 }
 
-.pop-up .video-container video {
+.pop-up .popUp-container video, .pop-up .popUp-container img {
     width: 100%;
     height: 100%;
 }
 
 .column .post-card {
-    max-width: 100%;
-    padding: 3vh;
+    width: 100%;
+    overflow: hidden;
+    /* padding: 3vh; */
     background-color: rgba(249, 230, 230, 1);
     border-radius: 20px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
     margin-bottom: 1vh;
 }
 
-.column .post-card .paragraph {
-    margin: 0;
-    font-size: 12px;
-    font-weight: normal;
-    color: #000;
-    margin: 2vh 0 2vh 0;
-}
-
 .column .post-card .top-section {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
+    /* width: 100%; */
+    padding: 1vh 3vh;
 }
 
 .column .post-card .top-section .left {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: left;
+    gap: 2vh;
     width: 35%;
 }
 
-.column .post-card .top-section .left .prof-pic {
-    width: 36px;
-    height: 36px;
+
+.column .picture-placeholder{
+
+    width: 8vh;
+    height: 8vh;
     border-radius: 50%;
+    position: relative;
     background-color: #B01130;
+}
+
+.column .post-card .top-section .left .prof-pic {
+    width: 8vh;
+    height: 8vh;
+    border-radius: 50%;
+    background-color: #F1DADA;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -251,7 +268,7 @@
 
 .column .post-card .top-section .left .user-info p {
     text-align: left;
-    font-size: 12px;
+    font-size: 16px;
     color: #B01130;
     margin: 0;
 }
@@ -270,21 +287,20 @@
     font-size: 24px;
 }
 
-.column .post-card.textImage .images {
+.column .post-card .images {
     display: grid;
-    margin: 0 0 2vh 0;
+    cursor: pointer;
+    /* border-radius: 15px; */
 }
 
-.column .post-card.textImage .images.image4 {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    border-radius: 30px;
+.column .post-card .images.image4 {
+    grid-template-columns: repeat(4, 1fr);
     overflow: hidden;
     background-color: #B01130;
     border: 1px solid #B01130;
 }
 
-.column .post-card.textImage .images.image3 {
+.column .post-card .images.image3 {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
 }
@@ -293,21 +309,21 @@
     grid-column: span 2;
 }
 
-.column .post-card.textImage .images.image2 {
+.column .post-card .images.image2 {
     grid-template-columns: repeat(2, 1fr);
 }
 
-.column .post-card.textImage .images.image1 {
+.column .post-card .images.image1 {
     grid-template-columns: 1fr;
 }
 
-.column .post-card.textImage .images .image {
+.column .post-card .images .image {
     max-height: 100%;
     width: 100%;
     border: 1px solid #B01130;
 }
 
-.column .post-card.textImage .images .image img {
+.column .post-card .images .image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -318,6 +334,7 @@
     justify-content: right;
     gap: 2vh;
     color: #B01130;
+    padding: 0 3vh 3vh 3vh;
 }
 
 .interaction-section .fa-heart {
@@ -349,23 +366,23 @@
     }
 }
 
-.column .post-card.rating {
+.column .post-card {
     display: flex;
     flex-direction: column;
     padding: 0;
     overflow: hidden;
 }
 
-.column .post-card.rating .half {
+.column .post-card .half {
     display: flex;
     flex-direction: column;
     gap: 1vh;
 }
 
 .half#half-1 {
-    padding: 3vh;
+    padding: 1vh 3vh;
     background-color: #B11131;
-    gap: 5vh;
+    gap: 1vh;
 }
 
 .half#half-1 .prof-pic {
@@ -377,30 +394,39 @@
     color: #F1DADA;
 }
 
-.half#half-1 .rating-section {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-.post-card.rating .half#half-1 .restaurants-info {
-    width: 100%;
-    display: flex;
-    gap: 1vh;
-}
-
-.post-card.rating .half#half-1 .restaurants-info .left {
+.half#half-1 .location-section {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    height: 100%;
 }
 
-.half#half-1 .rating-section .left p {
+.post-card .half#half-1 .restaurants-info {
+    width: 100%;
+    display: flex;
+    padding: 1vh 0;
+    flex-direction: row-reverse;
+    gap: 1vh;
+}
+
+.post-card .half#half-1 .restaurants-info .left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+}
+
+.half#half-1 .location-section .left .restaurant-name{
+    text-align: right;
+    font-size: 16px;
+}
+
+.location-section .left .restaurant-address{
+    text-align: right;
     font-size: 12px;
 }
 
-.post-card.rating .half#half-1 .restaurants-info .right {
+.post-card .half#half-1 .restaurants-info .right {
     padding: 1vh;
     background-color: #F1DADA;
     display: flex;
@@ -410,17 +436,37 @@
 }
 
 
-.half#half-1 .rating-section .right p,
-.half#half-1 .rating-section .right i::before {
+.half#half-1 .location-section .right p,
+.half#half-1 .location-section .right i::before {
     font-size: 16px;
     color: #b01130;
 }
 
-.half#half-2 {
-    padding: 3vh;
+.half#half-1 .location-section .stars-option{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0;
+
 }
 
-.post-card.textOnly .paragraph {
+.half#half-1 .location-section .stars-option i::before{
+    font-size: 20px;
+}
+
+.half#half-2 {
+    /* padding: 3vh; */
+}
+
+.paragraph-section{
+    padding: 1vh 3vh;
+}
+
+.post-card .paragraph {
+    margin: 0;
+    font-size: 12px;
+    font-weight: normal;
+    color: #000;
     display: -webkit-box;
     /* Required for line-clamp */
     -webkit-box-orient: vertical;
@@ -436,12 +482,12 @@
     transition: all 0.3s ease;
 }
 
-.post-card.textOnly .paragraph.expanded {
+.post-card .paragraph.expanded {
     -webkit-line-clamp: unset;
     max-height: none;
 }
 
-.post-card.textOnly .read-more {
+.post-card .read-more {
     color: #BC858A;
     cursor: pointer;
     display: inline-block;
@@ -449,27 +495,34 @@
     margin-top: 5px;
 }
 
-.post-card.textOnly .post-description {
+.post-card .description-container{
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.post-card.textOnly .post-description .title {
+.post-card .post-description {
+    display: flex;
+    flex-direction: column;
+    min-width: 50%;
+}
+
+.post-card .post-description .title {
     margin: 0;
     font-size: 28px;
     font-weight: bold;
-    color: #B01130;
+    color: #F1DADA;
     margin: 2vh 0 2vh 0;
 }
 
-.post-card.textOnly .post-description .status .views,
-.post-card.textOnly .post-description .status .read-time {
+.post-card .post-description .status .views,
+.post-card .post-description .status .read-time {
     display: flex;
     align-items: center;
     gap: 1vh;
 }
 
-.post-card.textOnly .post-description .status{
+.post-card .post-description .status{
     display: flex;
     align-items: center;
     justify-content: left;
@@ -477,6 +530,6 @@
     color: #BC858A;
 }
 
-.post-card.textOnly .post-description .status i::before, .post-card.textOnly .post-description .status p{
+.post-card .post-description .status i::before, .post-card .post-description .status p{
     font-size: 12px;
 }

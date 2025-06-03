@@ -54,14 +54,31 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-window.openVideo = function () {
-    document.querySelector('.pop-up').classList.add('active');
+window.openVideo = function () {    // Stop the video
+    const popup = document.querySelector('.pop-up');
+    const video = popup.querySelector('video');
+
+    popup.classList.add('active');
+    video.currentTime = 0; // Reset playback to the start
+    video.play();   
 };
 
 window.closeVideo = function () {
-    document.querySelector('.pop-up').classList.remove('active');
+    const popup = document.querySelector('.pop-up');
+    const video = popup.querySelector('video');
+
+    video.pause();       // Stop the video
+    video.currentTime = 0; // Reset playback to the start
+    popup.classList.remove('active')
 };
 
+window.openAddPost = function () {
+    document.querySelector('.pop-up.add-post').classList.add('active');
+}
+
+window.closeAddPost = function () {
+    document.querySelector('.pop-up.add-post').classList.remove('active');
+}
 
 window.toggleLike = function (id) {
     const like = document.getElementById('like' + id);
@@ -76,6 +93,19 @@ window.toggleLike = function (id) {
 };
 
 let postIdCounter = 4; // make sure this is globally declared
+
+
+window.toggleNotifBox = function () {
+    const notifBox = document.querySelector('notif-box');
+
+    notifBox.classList.toggle('active');
+    notifBox.classList.add('pop');
+
+    // Remove 'pop' after animation completes
+    setTimeout(() => {
+        notifBox.classList.remove('pop');
+    }, 400); // Match CSS animation duration
+};
 
 window.addNewPost = function () {
     const column1 = document.getElementById('column-1');
@@ -140,6 +170,23 @@ window.addNewPost = function () {
     postIdCounter++;
 };
 
+function openImage(clickedImg){
+    const popUp = document.querySelector('.pop-up.popImage');
+    const image = clickedImg.querySelector('img');
+    const poppedImage = popUp.querySelector('.poppedImage');
+
+    poppedImage.src = image.src;
+    popUp.classList.add('active');
+};
+
+
+function closeImage() {
+    const popUp = document.querySelector('.pop-up.popImage');
+    const poppedImage = popUp.querySelector('.poppedImage');
+
+    poppedImage.src = "";
+    popUp.classList.remove('active');
+}
 
 document.querySelectorAll('.post-card').forEach(card => {
     const imageContainer = card.querySelector('.images');
@@ -162,4 +209,132 @@ function toggleReadMore(elem) {
         paragraph.classList.add('expanded');
         elem.innerText = 'Read less';
     }
+}
+
+function generateTextImagePost(username, tag, paragraphText, imageUrls = []) {
+    const postCard = document.createElement('div');
+    postCard.classList.add('post-card', 'textImage');
+
+    const imageElements = imageUrls.slice(0, 4).map((url, i) => `
+        <div class="image" id="image${i + 1}">
+            <img src="${url}" alt="">
+        </div>`).join('');
+
+    postCard.innerHTML = `
+        <div class="top-section">
+            <div class="left">
+                <div class="prof-pic"></div>
+                <div class="user-info">
+                    <p class="user-name">${username}</p>
+                    <p class="user-tag">@${tag}</p>
+                </div>
+            </div>
+            <div class="right"><i class="fa-solid fa-share"></i></div>
+        </div>
+        <div class="paragraph-section">
+            <p class="paragraph">${paragraphText}</p>
+        </div>
+        <div class="images image${imageUrls.length}">
+            ${imageElements}
+        </div>
+        <div class="interaction-section">
+            <i class="fa-regular fa-heart" onclick="toggleLike()"></i>
+            <i class="fa-solid fa-repeat"></i>
+            <i class="fa-regular fa-comment"></i>
+        </div>`;
+    
+    document.getElementById('column-1').appendChild(postCard);
+}
+
+function generateTextOnlyPost(username, tag, title, paragraphText, views = 0, readTime = "1 min") {
+    const postCard = document.createElement('div');
+    postCard.classList.add('post-card', 'textOnly');
+
+    postCard.innerHTML = `
+        <div class="top-section">
+            <div class="left">
+                <div class="prof-pic"></div>
+                <div class="user-info">
+                    <p class="user-name">${username}</p>
+                    <p class="user-tag">@${tag}</p>
+                </div>
+            </div>
+            <div class="right"><i class="fa-solid fa-share"></i></div>
+        </div>
+        <div class="post-description">
+            <h2 class="title">${title}</h2>
+            <div class="status">
+                <div class="views"><i class="fa fa-eye"></i><p class="view-count">${views} views</p></div>
+                <div class="read-time"><i class="fa-regular fa-clock"></i><p class="time">${readTime}</p></div>
+            </div>
+        </div>
+        <div class="paragraph-section">
+            <p class="paragraph">${paragraphText}</p>
+            <span class="read-more" onclick="toggleReadMore(this)">Read more</span>
+        </div>
+        <div class="interaction-section">
+            <i class="fa-regular fa-heart" onclick="toggleLike()"></i>
+            <i class="fa-solid fa-repeat"></i>
+            <i class="fa-regular fa-comment"></i>
+        </div>`;
+
+    document.getElementById('column-1').appendChild(postCard);
+}
+
+function generateRatingPost(username, tag, restaurantName, address, ratingText, numericRating, review) {
+    const postCard = document.createElement('div');
+    postCard.classList.add('post-card', 'rating');
+
+    postCard.innerHTML = `
+        <div class="half" id="half-1">
+            <div class="top-section">
+                <div class="left">
+                    <div class="prof-pic"></div>
+                    <div class="user-info">
+                        <p class="user-name">${username}</p>
+                        <p class="user-tag">@${tag}</p>
+                    </div>
+                </div>
+                <div class="right"><i class="fa-solid fa-share"></i></div>
+            </div>
+            <div class="rating-section">
+                <div class="restaurants-info">
+                    <div class="left">
+                        <p class="restaurant-name">${restaurantName}</p>
+                        <p class="restaurant-address">${address}</p>
+                    </div>
+                    <div class="right">
+                        <p class="rating-num">${numericRating}</p>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+                <div class="stars-option">
+                    ${[...Array(5)].map(() => `<i class="fa-regular fa-star"></i>`).join('')}
+                </div>
+            </div>
+        </div>
+        <div class="half" id="half-2">
+            <div class="paragraph-section">
+                <p class="paragraph">"${review}"</p>
+            </div>
+            <div class="interaction-section">
+                <i class="fa-regular fa-heart" onclick="toggleLike()"></i>
+                <i class="fa-solid fa-repeat"></i>
+                <i class="fa-regular fa-comment"></i>
+            </div>
+        </div>`;
+
+    document.getElementById('column-2').appendChild(postCard);
+}
+
+
+document.addEventListener("input", function (event) {
+    if (event.target.classList.contains("inputText")) {
+        autoResizeTextarea(event.target);
+    }
+});
+
+function autoResizeTextarea(textarea) {
+    textarea.style.height = "auto"; // Reset height
+    textarea.style.height = (textarea.scrollHeight) + "px"; // Set new height
 }
