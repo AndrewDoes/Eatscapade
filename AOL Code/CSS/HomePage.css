@@ -1,4 +1,4 @@
-.post-container{
+.post-container {
     min-height: 100%;
     max-width: 65%;
     min-width: 65%;
@@ -7,7 +7,7 @@
     flex-direction: column;
 }
 
-.video-story{
+.video-story {
     border: 1px solid #B11131;
     max-width: 100%;
     min-height: 27.5%;
@@ -15,16 +15,20 @@
     overflow-y: hidden;
     display: flex;
     gap: 1vw;
-    scroll-snap-type: x mandatory; /* enables snapping behavior */
-    -webkit-overflow-scrolling: touch; /* smooth scroll on mobile */
-    scrollbar-width: none; /* hide scrollbar (Firefox) */
+    scroll-snap-type: x mandatory;
+    /* enables snapping behavior */
+    -webkit-overflow-scrolling: touch;
+    /* smooth scroll on mobile */
+    scrollbar-width: none;
+    /* hide scrollbar (Firefox) */
     cursor: grab;
     user-select: none;
     scroll-behavior: smooth;
-    white-space: nowrap; /* Important fallback */
+    white-space: nowrap;
+    /* Important fallback */
 }
 
-.video-story.dragging{
+.video-story.dragging {
     cursor: grabbing;
 }
 
@@ -32,17 +36,18 @@
     display: none;
 }
 
-.video-story video{
+.video-story video {
     height: 100%;
 }
 
 .post {
-  display: flex;
-  flex-direction: row; /* stack items from top to bottom */
-  height: auto;
-  position: relative;
-  border: 1px solid #B11131;
-  padding-top: 3vh;
+    display: flex;
+    flex-direction: row;
+    /* stack items from top to bottom */
+    height: auto;
+    position: relative;
+    border: 1px solid #B11131;
+    padding-top: 3vh;
 }
 
 
@@ -51,18 +56,19 @@
     display: none;
 }
 
-.column{
-    max-width: 50%;
+.column {
+    width: 50%;
     height: auto;
     position: relative;
     border: 1px solid #FF9B22;
 }
 
-.video-card{
+.video-card {
     /* I want this to be like a card that can overflow from it's container */
     top: 0;
     left: 0;
-    flex: 0 0 auto; /* prevent shrinking and define fixed width */
+    flex: 0 0 auto;
+    /* prevent shrinking and define fixed width */
     scroll-snap-align: start;
     width: 9vw;
     height: 100%;
@@ -74,7 +80,7 @@
     position: relative;
 }
 
-.video-card::before{
+.video-card::before {
     border-radius: 40px 40px 40px 10px;
     content: "";
     position: absolute;
@@ -83,22 +89,24 @@
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.4);
-    opacity: 0; /* Start invisible */
+    opacity: 0;
+    /* Start invisible */
     transition: opacity 0.3s ease;
-    pointer-events: none; /* Prevent blocking clicks */
+    pointer-events: none;
+    /* Prevent blocking clicks */
 }
 
-.video-card:hover::before{
+.video-card:hover::before {
     opacity: 1;
 }
 
-.video-card:hover{
+.video-card:hover {
     top: -0.5vh;
     /* left: -0.2vh; */
     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.7);
 }
 
-.user-profile{
+.user-profile {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -109,7 +117,7 @@
     width: 100%;
 }
 
-.user-pic{
+.user-pic {
     width: 36px;
     height: 36px;
     border-radius: 50%;
@@ -121,27 +129,27 @@
     color: #D72638;
 }
 
-.user-profile .user-info p{
+.user-profile .user-info p {
     margin: 0;
 }
 
-.user-profile .user-info .user-name{
+.user-profile .user-info .user-name {
     font-size: 16px;
     font-weight: normal;
     color: #FFF;
 }
 
-.user-profile .user-info .user-desc{
+.user-profile .user-info .user-desc {
     font-size: 12px;
     font-weight: normal;
     color: #FFF;
 }
 
-.user-pic .fa-solid.fa-user::before{
+.user-pic .fa-solid.fa-user::before {
     font-size: 24px;
 }
 
-.pop-up{
+.pop-up {
     width: 100%;
     height: 0%;
     position: absolute;
@@ -156,7 +164,7 @@
     z-index: 1;
 }
 
-.pop-up.active{
+.pop-up.active {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -172,7 +180,7 @@
     z-index: 1;
 }
 
-.pop-up.active .video-container.landscape{
+.pop-up.active .video-container.landscape {
     width: 40vw;
     height: 30vw;
     display: flex;
@@ -181,7 +189,7 @@
     align-items: center;
 }
 
-.pop-up.active .video-container.landscape{
+.pop-up.active .video-container.landscape {
     width: 40vw;
     height: 30vw;
     display: flex;
@@ -190,7 +198,7 @@
     align-items: center;
 }
 
-.pop-up .video-container video{
+.pop-up .video-container video {
     width: 100%;
     height: 100%;
 }
@@ -204,7 +212,7 @@
     margin-bottom: 1vh;
 }
 
-.column .post-card .paragraph{
+.column .post-card .paragraph {
     margin: 0;
     font-size: 12px;
     font-weight: normal;
@@ -212,21 +220,21 @@
     margin: 2vh 0 2vh 0;
 }
 
-.column .post-card .top-section{
+.column .post-card .top-section {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
 }
 
-.column .post-card .top-section .left{
+.column .post-card .top-section .left {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 35%;
 }
 
-.column .post-card .top-section .left .prof-pic{
+.column .post-card .top-section .left .prof-pic {
     width: 36px;
     height: 36px;
     border-radius: 50%;
@@ -236,38 +244,38 @@
     justify-content: center;
 }
 
-.column .post-card .top-section .left .user-info{
+.column .post-card .top-section .left .user-info {
     display: flex;
     flex-direction: column;
 }
 
-.column .post-card .top-section .left .user-info p{
+.column .post-card .top-section .left .user-info p {
     text-align: left;
     font-size: 12px;
     color: #B01130;
     margin: 0;
 }
 
-.column .post-card .top-section .left .user-info .user-name{
+.column .post-card .top-section .left .user-info .user-name {
     font-weight: bold;
 }
 
-.column .post-card .top-section .right .fa-solid.fa-share::before{
+.column .post-card .top-section .right .fa-solid.fa-share::before {
     font-size: 20px;
     transition: font-size 0.3s ease-in-out;
-    color:#B01130;
+    color: #B01130;
 }
 
-.column .post-card .top-section .right .fa-solid.fa-share:hover::before{
+.column .post-card .top-section .right .fa-solid.fa-share:hover::before {
     font-size: 24px;
 }
 
-.column .post-card.textImage .images{
+.column .post-card.textImage .images {
+    display: grid;
     margin: 0 0 2vh 0;
 }
 
-.column .post-card.textImage .images.image4{
-    display: grid;
+.column .post-card.textImage .images.image4 {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
     border-radius: 30px;
@@ -276,19 +284,36 @@
     border: 1px solid #B01130;
 }
 
-.column .post-card.textImage .images.image4 .image{
+.column .post-card.textImage .images.image3 {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+}
+
+.image3 .image:first-child {
+    grid-column: span 2;
+}
+
+.column .post-card.textImage .images.image2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.column .post-card.textImage .images.image1 {
+    grid-template-columns: 1fr;
+}
+
+.column .post-card.textImage .images .image {
     max-height: 100%;
     width: 100%;
     border: 1px solid #B01130;
 }
 
-.column .post-card.textImage .images.image4 .image img{
+.column .post-card.textImage .images .image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.column .post-card.textImage .interaction-section{
+.column .post-card .interaction-section {
     display: flex;
     justify-content: right;
     gap: 2vh;
@@ -302,7 +327,8 @@
 
 .interaction-section .fa-heart.active {
     font-weight: bold;
-    color: #B01130; /* red */
+    color: #B01130;
+    /* red */
 }
 
 .interaction-section .fa-heart.pop {
@@ -313,10 +339,144 @@
     0% {
         transform: scale(1);
     }
+
     50% {
         transform: scale(1.5);
     }
+
     100% {
         transform: scale(1);
     }
+}
+
+.column .post-card.rating {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    overflow: hidden;
+}
+
+.column .post-card.rating .half {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+
+.half#half-1 {
+    padding: 3vh;
+    background-color: #B11131;
+    gap: 5vh;
+}
+
+.half#half-1 .prof-pic {
+    background-color: #fff;
+}
+
+.half#half-1 p,
+.half#half-1 i::before {
+    color: #F1DADA;
+}
+
+.half#half-1 .rating-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.post-card.rating .half#half-1 .restaurants-info {
+    width: 100%;
+    display: flex;
+    gap: 1vh;
+}
+
+.post-card.rating .half#half-1 .restaurants-info .left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.half#half-1 .rating-section .left p {
+    font-size: 12px;
+}
+
+.post-card.rating .half#half-1 .restaurants-info .right {
+    padding: 1vh;
+    background-color: #F1DADA;
+    display: flex;
+    border-radius: 100px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.half#half-1 .rating-section .right p,
+.half#half-1 .rating-section .right i::before {
+    font-size: 16px;
+    color: #b01130;
+}
+
+.half#half-2 {
+    padding: 3vh;
+}
+
+.post-card.textOnly .paragraph {
+    display: -webkit-box;
+    /* Required for line-clamp */
+    -webkit-box-orient: vertical;
+    /* Required for line-clamp */
+    -webkit-line-clamp: 4;
+    /* Show only 4 lines */
+    overflow: hidden;
+    /* Hides overflowing content */
+    text-overflow: ellipsis;
+    /* Adds '...' if needed */
+    max-height: 6em;
+    /* Optional for extra fallback */
+    transition: all 0.3s ease;
+}
+
+.post-card.textOnly .paragraph.expanded {
+    -webkit-line-clamp: unset;
+    max-height: none;
+}
+
+.post-card.textOnly .read-more {
+    color: #BC858A;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+.post-card.textOnly .post-description {
+    display: flex;
+    flex-direction: column;
+}
+
+.post-card.textOnly .post-description .title {
+    margin: 0;
+    font-size: 28px;
+    font-weight: bold;
+    color: #B01130;
+    margin: 2vh 0 2vh 0;
+}
+
+.post-card.textOnly .post-description .status .views,
+.post-card.textOnly .post-description .status .read-time {
+    display: flex;
+    align-items: center;
+    gap: 1vh;
+}
+
+.post-card.textOnly .post-description .status{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 2vh;
+    color: #BC858A;
+}
+
+.post-card.textOnly .post-description .status i::before, .post-card.textOnly .post-description .status p{
+    font-size: 12px;
 }

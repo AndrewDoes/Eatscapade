@@ -3,6 +3,10 @@
     font-size: large;
 }
 
+p, h2{
+    margin: 0;
+}
+
 body {
     background-color: #EDD8D8;
     padding: 2%;
@@ -171,6 +175,10 @@ input[type=text]:focus {
     position: relative;
     display: flex;
     overflow-y: auto;
+    scrollbar-width: none;
+    /* hide scrollbar (Firefox) */
+    user-select: none;
+    scroll-behavior: smooth;
 }
 
 .calendar-container{
@@ -182,9 +190,9 @@ input[type=text]:focus {
 }
 
 .column#column-1{
-    padding-right: 1vw;
+    padding-right: 0.5vw;
 }
 
 .column#column-2{
-    padding-left: 1vw;
+    padding-left: 0.5vw;
 }

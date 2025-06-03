@@ -63,8 +63,8 @@ window.closeVideo = function () {
 };
 
 
-window.toggleLike = function () {
-    const like = document.querySelector('.fa-heart');
+window.toggleLike = function (id) {
+    const like = document.getElementById('like' + id);
 
     like.classList.toggle('active');
     like.classList.add('pop');
@@ -74,3 +74,92 @@ window.toggleLike = function () {
         like.classList.remove('pop');
     }, 400); // Match CSS animation duration
 };
+
+let postIdCounter = 4; // make sure this is globally declared
+
+window.addNewPost = function () {
+    const column1 = document.getElementById('column-1');
+    const column2 = document.getElementById('column-2');
+
+    const newPost = document.createElement('div');
+    newPost.className = 'post-card textImage';
+    newPost.id = `post${postIdCounter}`;
+
+    const imageCount = Math.floor(Math.random() * 4) + 1; // 1 to 4
+    const imageUrls = [
+        "https://placekitten.com/300/200",
+        "https://placebear.com/300/200",
+        "https://placebeard.it/300x200",
+        "https://placekitten.com/301/200"
+    ];
+
+    let imagesHTML = "";
+    for (let i = 0; i < imageCount; i++) {
+        imagesHTML += `
+            <div class="image" id="image${i + 1}">
+                <img src="${imageUrls[i]}" alt="Image ${i + 1}">
+            </div>
+        `;
+    }
+
+    newPost.innerHTML = `
+        <div class="top-section">
+            <div class="left">
+                <div class="prof-pic"></div>
+                <div class="user-info">
+                    <p class="user-name">NewUser${postIdCounter}</p>
+                    <p class="user-tag">@newuser${postIdCounter}</p>
+                </div>
+            </div>
+            <div class="right">
+                <i class="fa-solid fa-share"></i>
+            </div>
+        </div>
+        <div class="paragraph-section">
+            <p class="paragraph">
+                This is a dynamically added post with ${imageCount} image(s).
+            </p>
+        </div>
+        <div class="images image${imageCount}">
+            ${imagesHTML}
+        </div>
+        <div class="interaction-section">
+            <i class="fa-regular fa-heart" onclick="toggleLike()"></i>
+            <i class="fa-solid fa-repeat"></i>
+            <i class="fa-regular fa-comment"></i>
+        </div>
+    `;
+
+    // Alternate between columns
+    if (column1.children.length <= column2.children.length) {
+        column1.appendChild(newPost);
+    } else {
+        column2.appendChild(newPost);
+    }
+
+    postIdCounter++;
+};
+
+
+document.querySelectorAll('.post-card').forEach(card => {
+    const imageContainer = card.querySelector('.images');
+    const images = imageContainer.querySelectorAll('.image');
+
+    const count = images.length;
+    imageContainer.classList.remove('image1', 'image2', 'image3', 'image4');
+    if (count > 0 && count <= 4) {
+        imageContainer.classList.add(`image${count}`);
+    }
+});
+
+function toggleReadMore(elem) {
+    const paragraph = elem.previousElementSibling;
+
+    if (paragraph.classList.contains('expanded')) {
+        paragraph.classList.remove('expanded');
+        elem.innerText = 'Read more';
+    } else {
+        paragraph.classList.add('expanded');
+        elem.innerText = 'Read less';
+    }
+}

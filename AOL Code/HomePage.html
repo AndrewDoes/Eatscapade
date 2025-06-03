@@ -45,7 +45,7 @@
                         <li><a href="#"><i class="fa-solid fa-clock-rotate-left"></i>Your Activity</a></li>
                     </div>
                     <div class="button add-post">
-                        <Button class="add-post-Button" onclick="">+ New Post</Button>
+                        <Button class="add-post-Button" onclick="addNewPost()">+ New Post</Button>
                     </div>
                 </div>
                 <div class="button" id="logout">
@@ -185,14 +185,116 @@
                                     </div>
                                 </div>
                                 <div class="interaction-section">
-                                    <i class="fa-regular fa-heart" onclick="toggleLike()"></i>
+                                    <i class="fa-regular fa-heart" id="like1" onclick="toggleLike(1)"></i>
+                                    <i class="fa-solid fa-repeat"></i>
+                                    <i class="fa-regular fa-comment"></i>
+                                </div>
+                            </div>
+
+                            <div class="post-card textOnly">
+                                <div class="top-section">
+                                    <div class="left">
+                                        <div class="prof-pic"></div>
+                                        <div class="user-info">
+                                            <p class="user-name">Username</p>
+                                            <p class="user-tag">@Username</p>
+                                        </div>
+                                    </div>
+                                    <div class="right">
+                                        <i class="fa-solid fa-share"></i>
+                                    </div>
+                                </div>
+                                <div class="post-description">
+                                    <h2 class="title">Lipsum: Lorem Ipsum</h2>
+                                    <div class="status">
+                                        <div class="views">
+                                            <i class="fa fa-eye" aria-hidden="true"></i>
+                                            <p class="view-count" id="view-count1">
+                                                9999 views
+                                            </p>
+                                        </div>
+                                        <div class="read-time">
+                                            <i class="fa-regular fa-clock"></i>
+                                            <p class="time">314 minutes read</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="paragraph-section">
+                                    <div class="paragraph-section">
+                                        <p class="paragraph" id="post-paragraph-1">
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis doloremque
+                                            nulla eaque vitae quia, voluptates iste, aperiam, temporibus laborum quaerat
+                                            ea nisi exercitationem! Impedit, vel! Eum accusantium incidunt optio soluta
+                                            tempore. Accusamus officiis quos nobis laborum eligendi voluptatibus fugit
+                                            animi aliquam nostrum provident repellendus sequi distinctio nisi quo quae,
+                                            doloremque earum? Praesentium, quam fugiat quis officia distinctio laborum
+                                            voluptate ducimus, veritatis fugit animi facere consectetur doloribus vel
+                                            quod dicta enim rem expedita consequatur itaque excepturi quisquam ipsam.
+                                            Deleniti harum maiores nihil tempore voluptate accusantium, labore quasi
+                                            consequuntur consectetur? Blanditiis atque, voluptas aliquid minima quam
+                                            magnam quidem quas saepe aperiam. Aspernatur?
+                                        </p>
+                                        <span class="read-more" onclick="toggleReadMore(this)">Read more</span>
+                                    </div>
+                                </div>
+                                <div class="interaction-section">
+                                    <i class="fa-regular fa-heart" id="like1" onclick="toggleLike(3)"></i>
                                     <i class="fa-solid fa-repeat"></i>
                                     <i class="fa-regular fa-comment"></i>
                                 </div>
                             </div>
                         </div>
                         <div class="column" id="column-2">
-                            
+                            <div class="post-card rating">
+                                <div class="half" id="half-1">
+                                    <div class="top-section">
+                                        <div class="left">
+                                            <div class="prof-pic"></div>
+                                            <div class="user-info">
+                                                <p class="user-name">Username</p>
+                                                <p class="user-tag">@Username</p>
+                                            </div>
+                                        </div>
+                                        <div class="right">
+                                            <i class="fa-solid fa-share"></i>
+                                        </div>
+                                    </div>
+                                    <div class="rating-section">
+                                        <div class="restaurants-info">
+                                            <div class="left">
+                                                <p class="restaurant-name">Name of restaurant</p>
+                                                <p class="restaurant-address">Restaurant address</p>
+                                            </div>
+                                            <div class="right">
+                                                <p class="rating-num">4.5</p>
+                                                <i class="fa-solid fa-star"></i>
+                                            </div>
+                                        </div>
+                                        <div class="stars-option">
+                                            <i class="fa-regular fa-star"></i>
+                                            <i class="fa-regular fa-star"></i>
+                                            <i class="fa-regular fa-star"></i>
+                                            <i class="fa-regular fa-star"></i>
+                                            <i class="fa-regular fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="half" id="half-2">
+                                    <div class="paragraph-section">
+                                        <p class="paragraph">
+                                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                            tempor
+                                            incididunt ut labore et dolore magna aliqua."
+                                        </p>
+
+                                    </div>
+                                    <div class="interaction-section">
+                                        <i class="fa-regular fa-heart" id="like2" onclick="toggleLike(2)"></i>
+                                        <i class="fa-solid fa-repeat"></i>
+                                        <i class="fa-regular fa-comment"></i>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
