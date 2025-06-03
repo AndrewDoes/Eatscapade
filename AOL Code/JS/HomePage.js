@@ -61,3 +61,16 @@ window.openVideo = function () {
 window.closeVideo = function () {
     document.querySelector('.pop-up').classList.remove('active');
 };
+
+
+window.toggleLike = function () {
+    const like = document.querySelector('.fa-heart');
+
+    like.classList.toggle('active');
+    like.classList.add('pop');
+
+    // Remove 'pop' after animation completes
+    setTimeout(() => {
+        like.classList.remove('pop');
+    }, 400); // Match CSS animation duration
+};
